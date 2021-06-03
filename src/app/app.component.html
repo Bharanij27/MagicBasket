@@ -3,7 +3,7 @@
 </header>
 <div class="container">
 	<div class="add-item">
-		<input type="text" [(ngModel)] = "itemInput" #in="ngModel">
+		<input type="text" (keydown.enter)="addItemToBasket(itemInput)" [(ngModel)] = "itemInput" #in="ngModel">
 		<button [disabled]="!itemInput" (click) = "addItemToBasket(itemInput)">Add</button>
 	</div>
 
