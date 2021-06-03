@@ -1,0 +1,19 @@
+<div class="shop-wrapper">
+	<div class="add-item">
+		<input type="text" (keydown.enter)="addItemToBasket(itemInput)" [(ngModel)] = "itemInput" #in="ngModel">
+		<button [disabled]="!itemInput" (click) = "addItemToBasket(itemInput)">Add</button>
+	</div>
+
+	<div class="list-items">
+
+	</div>
+	<div class="items-list-wrapper">
+		<div class="items-list">
+			<ul>
+				<li *ngFor="let item of itemBaskets">
+					<item-card [item]="item" (deleteEvent)="removeItemFromBasket($event)"></item-card>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

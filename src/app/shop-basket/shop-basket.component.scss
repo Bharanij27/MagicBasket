@@ -1,0 +1,44 @@
+.add-item{
+    input {
+        padding: 0.8rem 0.5rem;
+        border-radius: 10px;
+        width: 35%;
+        border: 1px solid #bbb;
+        outline: none;
+
+        &:focus {
+            border-color: #0064DB;
+        }
+    }
+    
+    button{
+        color: white;
+        padding: 0.5rem 1rem;
+        margin: 0rem 1rem;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 1rem;
+        background-color: #4CAF50;
+        
+        &:disabled {
+            background-color: #e7e7e7;
+            color: #24262A;
+            cursor: not-allowed;
+        }
+    }
+} 
+
+.items-list-wrapper{
+    margin: 2rem 0rem;
+
+    ul{
+        list-style: none;
+        padding-left: 0;
+    }
+
+    .items-list{
+        margin-top: 1rem;
+    }
+}
+ 

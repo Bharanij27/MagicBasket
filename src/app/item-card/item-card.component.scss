@@ -1,0 +1,34 @@
+.close {
+    position: absolute;
+    top: 50%;
+    right: 0%;
+    padding: 5px 10px;
+    transform: translate(0%, -50%);
+    cursor: pointer;
+    margin-right: 0.5rem;
+    border-radius: 20px;
+      
+	&:hover {
+        background: #EB000E;
+	}
+}
+
+
+.card{
+    margin-right: 1rem;
+    background-color: #f3ca20;
+    border-top: 1px solid #24252A;
+    border-bottom: 1px solid #24252A;
+    font-family: "Syne Mono", monospace;
+    padding: 1rem 3rem 1rem 1rem;
+    border-radius: 10px;
+    color: #24252A;
+    display: inline-block;
+    position: relative;
+    text-transform: capitalize;
+
+    &.fruit{
+        font-style: italic;
+        background-color: #3BB9FF;
+    }
+}

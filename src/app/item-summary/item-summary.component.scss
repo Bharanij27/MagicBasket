@@ -1,0 +1,21 @@
+.summary-wrapper{
+    padding: 1.5rem 1rem;
+    font-size: 1.5rem;
+    border-radius: 20px;
+    color: #24252A;
+    text-align: center;
+    background-color: #7FCDCD;
+    
+    .item-avaiable{
+        display: flex;
+        justify-content: center;
+
+        ul{
+            list-style: none;
+            .item{
+                padding: 10px 0px;
+            }
+        }
+    }
+
+}

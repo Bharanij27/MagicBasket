@@ -2,26 +2,6 @@
 	<div class="title">Magic Basket</div>
 </header>
 <div class="container">
-	<div class="add-item">
-		<input type="text" (keydown.enter)="addItemToBasket(itemInput)" [(ngModel)] = "itemInput" #in="ngModel">
-		<button [disabled]="!itemInput" (click) = "addItemToBasket(itemInput)">Add</button>
-	</div>
-
-	<div class="list-items">
-
-	</div>
-	<div class="items-list-wrapper">
-		<div class="vege card">Vegetable</div>
-		<div class="fruit card">Fruit</div>
-		<div class="items-list">
-			<ul>
-				<li *ngFor="let item of itemBaskets let i = index">
-					<div [ngClass]="{'card' : true, 'fruit' : fruits.includes(item.toLowerCase())}">
-						{{item}}
-						<span class="close" (click)="deleteItem(i)">&times;</span>
-					</div>
-				</li>
-			</ul>
-		</div>
-	</div>
+	<shop-basket></shop-basket>
+	<item-summary></item-summary>
 </div>

@@ -1,0 +1,16 @@
+<div class="summary-wrapper">
+    Your cart have {{itemCount}} items
+    <div class="item-avaiable">
+        <ul>
+            Fruits Available for shopping
+            <li class="item" *ngFor="let item of itemCartService.fruits">
+                {{item | titlecase}}
+            </li>
+        </ul>
+        <ul>
+            Vegetables Available for shopping
+            <li class="item" *ngFor="let item of itemCartService.vegetables">
+                {{item | titlecase}}
+            </li>
+        </ul>
+</div>

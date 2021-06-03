@@ -1,7 +1,3 @@
-.container{
-    padding: 5rem;
-}
-
 header{
     display: flex;
     justify-content: center;
@@ -13,85 +9,16 @@ header{
 
     .title{
         background-color: inherit;
+        font-family: Georgia, sans-serif;
+        letter-spacing: 2px;
     }
 }
 
-.add-item{
-    input {
-        padding: 0.8rem 0.5rem;
-        border-radius: 10px;
-        width: 25%;
-        border: 1px solid #bbb;
-        outline: none;
-
-        &:focus {
-            border-color: #0064DB;
-        }
-    }
-    
-    button{
-        color: white;
-        padding: 0.5rem 1rem;
-        margin: 0rem 1rem;
-        border: none;
-        border-radius: 10px;
-        cursor: pointer;
-        font-size: 1rem;
-        background-color: #4CAF50;
-        
-        &:disabled {
-            background-color: #e7e7e7;
-            color: #24262A;
-            cursor: not-allowed;
-        }
-    }
-} 
-
-.items-list-wrapper{
-    margin: 2rem 0rem;
-
-    ul{
-        list-style: none;
-    }
-
-    .card{
-        width: 100px;
-        margin-right: 1rem;
-        background-color: #f3ca20;
-        border-top: 1px solid #24252A;
-        border-bottom: 1px solid #24252A;
-        font-family: "Syne Mono", monospace;
-        padding: 1rem;
-        border-radius: 10px;
-        color: #24252A;
-        display: inline-block;
-        position: relative;
-        text-transform: capitalize;
-    }
-
-    .fruit{
-        font-style: italic;
-        background-color: #3BB9FF;
-    }
-
-    .items-list{
-        margin-top: 1rem;
+.container{
+    padding: 5rem;
+    display: flex;
+    justify-content: space-evenly;
+    > *{
+        width: 50%;
     }
 }
-
-.close {
-    position: absolute;
-    top: 50%;
-    right: 0%;
-    padding: 5px 10px;
-    transform: translate(0%, -50%);
-    cursor: pointer;
-    margin-right: 0.5rem;
-    border-radius: 20px;
-      
-	&:hover {
-		background: #EB000E;
-	}
-	
-}
- 
