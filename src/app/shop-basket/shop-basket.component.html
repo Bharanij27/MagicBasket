@@ -1,12 +1,13 @@
 <div class="shop-wrapper">
 	<div class="add-item">
-		<input type="text" (keydown.enter)="addItemToBasket(itemInput)" [(ngModel)] = "itemInput" #in="ngModel">
-		<button [disabled]="!itemInput" (click) = "addItemToBasket(itemInput)">Add</button>
+		<form [formGroup]="itemForm" (ngSubmit)="addItemToBasket()">
+			<input type="text" formControlName="itemName">
+			<button [disabled]="!itemForm.invalid" type="submit">Add</button>
+		</form>
 	</div>
 
-	<div class="list-items">
-
-	</div>
+	<div *ngIf="itemForm.controls.itemName.errors?.invalidItem" class="error">* Item not in list</div>
+	<div *ngIf="itemForm.controls.itemName.touched && itemForm.controls.itemName.errors?.required" class="error">* This field is required</div>
 	<div class="items-list-wrapper">
 		<div class="items-list">
 			<ul>

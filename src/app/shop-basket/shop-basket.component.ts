@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { Item, ItemType } from '../constants/Item';
 import { ItemCartService } from '../item-cart.service';
 
@@ -10,26 +11,28 @@ import { ItemCartService } from '../item-cart.service';
 export class ShopBasketComponent implements OnInit {
 
   itemBaskets: Item[] = [{id : "0", name : "mango", type: ItemType.Fruit}]
-
-  itemInput: string  = "";
+ 
+  itemForm : FormGroup = this.formBuilder.group({
+	  itemName:  ["", [Validators.required, this.isItemsExits()], ]
+  });
   
-  constructor(private itemCartService : ItemCartService) { }
+  constructor(private itemCartService : ItemCartService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
 	this.itemCartService.setItemsCount(this.itemBaskets.length)
   }
 
-	addItemToBasket =  (itemName : string) : void => {
-		let item: string = itemName.trim().toLowerCase();
+	addItemToBasket =  () : void => {
+		let item: string = this.itemForm.value.itemName.trim().toLowerCase();
 		if(this.itemCartService.fruits.includes(item) || this.itemCartService.vegetables.includes(item)) {
 			if(this.basketHasItem(item)){
 				let itemId : string =  Math.random().toString(36).substr(2, 9);
 				let itemType : ItemType = this.itemCartService.fruits.includes(item) ? ItemType.Fruit : ItemType.Vegetable;
 				this.itemBaskets.push(<Item>{id : itemId, name : item, type: itemType});
-				this.itemInput =  "";
+				this.itemForm.reset();				
 				this.itemCartService.setItemsCount(this.itemBaskets.length)
 			}
-			else alert("Already Inserted");
+			else alert("Item already on cart");
 		}
 		else alert("Item not match with the list");
 	}
@@ -42,4 +45,12 @@ export class ShopBasketComponent implements OnInit {
 		this.itemCartService.setItemsCount(this.itemBaskets.length)
 	}
 
+	isItemsExits() : ValidatorFn {
+		return (control : AbstractControl) : { [key : string] : any} => {
+			if(!control.value) return { invalidItem: false};
+			let itemName : string = control.value.trim().toLowerCase();
+			return (this.itemCartService.fruits.includes(itemName) || this.itemCartService.vegetables.includes(itemName)) ? 
+			{ invalidItem: false } : { invalidItem: true }
+		}
+	}
 }
